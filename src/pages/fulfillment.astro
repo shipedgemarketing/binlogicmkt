@@ -1,0 +1,681 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const fulfillmentColumns = [
+	[
+		{
+			src: '/fulfillment/loop/image1.webp',
+			alt: 'Team member planning fulfillment workflows',
+			className: 'aspect-[4/3]',
+		},
+		{
+			src: '/fulfillment/loop/image4.avif',
+			alt: 'Warehouse team working at computers',
+			className: 'aspect-[4/5]',
+		},
+		{
+			src: '/fulfillment/loop/image7.avif',
+			alt: 'Warehouse operator reviewing stock',
+			className: 'aspect-[4/5]',
+		},
+		{
+			src: '/fulfillment/loop/image10.avif',
+			alt: 'Fulfillment warehouse activity',
+			className: 'aspect-[4/3]',
+		},
+	],
+	[
+		{
+			src: '/fulfillment/loop/image2.avif',
+			alt: 'Operator using equipment in the warehouse',
+			className: 'aspect-[4/5]',
+		},
+		{
+			src: '/fulfillment/loop/image5.avif',
+			alt: 'Workers coordinating inventory tasks',
+			className: 'aspect-[4/3]',
+		},
+		{
+			src: '/fulfillment/loop/image8.avif',
+			alt: 'Picking and packing products',
+			className: 'aspect-[4/5]',
+		},
+	],
+	[
+		{
+			src: '/fulfillment/loop/image3.avif',
+			alt: 'Boxes stacked for fulfillment',
+			className: 'aspect-[4/5]',
+		},
+		{
+			src: '/fulfillment/loop/image6.avif',
+			alt: 'Fulfillment associate in warehouse',
+			className: 'aspect-[4/3]',
+		},
+		{
+			src: '/fulfillment/loop/image9.avif',
+			alt: 'Inventory movement across fulfillment floor',
+			className: 'aspect-[4/5]',
+		},
+	],
+];
+
+const columnDurations = ['26s', '30s', '34s'];
+
+const workflowSections = [
+	{
+		id: 1,
+		layout: 'feature',
+		image: '/fulfillment/content/image1.avif',
+		alt: 'Team member using an inventory control app',
+		title: 'Give team members an easy to use & workflow driven inventory control app.',
+		introOne:
+			'For great inventory management to happen, the first step is to give your team an easy way to do data-entry, without actually doing data-entry.',
+		introTwo:
+			'By using a workflow driven system, data entry happens as team members work. This can greatly increases accuracy, and speeds up task completion.',
+		callout: 'Workflows with industry best practices built in.',
+		tabs: ['Receive', 'Store', 'Recount', 'Move'],
+		items: [],
+		cards: [],
+		featureTitle: 'Receiving Products',
+		featureBody:
+			'This is not only the start of your inventory management journey, but this step is crucial to get right as having accurate inventory counts begins with this process.',
+		quicktip:
+			'If you can get incoming shipment information like expected arrival dates or quantities of products in advance receiving will be much faster.',
+	},
+	{
+		id: 2,
+		layout: 'grid',
+		tabs: [],
+		cards: [],
+		items: [
+			{
+				title: 'Storing Inventory',
+				paragraphs: [
+					'Knowing where products are and how much you actually have is an important part of daily inventory & order fulfillment operations.',
+					'Once your team has clarity when it comes to that, you can start really optimizing the process in terms of where to place products to speed up the rest of the processes in your fulfillment center.',
+					'Common efficiency gains can come from what level of racking you place certain products on, how far away from inbound & outbound stations, and so much more.',
+				],
+			},
+			{
+				title: 'Moving Locations',
+				paragraphs: [
+					'The process of relocating products from one bin or location to another seems simple, and it can be as long as your team is religious about logging movement within the facility.',
+					'The good news is that many inventory control systems like ours will track those movements as they are made through easy workflows in the mobile app or on the web application.',
+					"Order fulfillment would be very hard if someone doesn't know where something is because the data is not accurate or updated.",
+				],
+			},
+			{
+				title: 'Counting & Recounting',
+				paragraphs: [
+					'Counting inventory or recounting inventory is an important maintenance task that helps to ensure inventory is accurate.',
+					'Cycle counting or blind counting are common processes that can be used to keep everything up to date when done from time to time.',
+				],
+				quicktip:
+					'The more your team utilizes the other workflows correctly, the less counting and recounting you will need to do.',
+			},
+			{
+				title: 'Picking & Packing',
+				paragraphs: [
+					'This process is the backbone of your order fulfillment operations. If your team has utilized the other processes here well, this should be a highly efficient and error-free process.',
+					'Order fulfillment metrics to pay attention to would be picking accuracy, inventory accuracy, order cycle time, picks per hour, etc..',
+					'There are also many different picking styles and ways to organize them that can drive efficiency in your order fulfillment process.',
+				],
+			},
+		],
+	},
+	{
+		id: 3,
+		layout: 'management',
+		image: '/fulfillment/content/image2.avif',
+		alt: 'Management team monitoring a fulfillment floor',
+		title: 'Provide management with tools to monitor, organize, and optimize the work.',
+		introOne:
+			'Once your team has covered basic workflows, a great next step is to allow management to monitor, organize, and optimize inventory & order fulfillment operations for efficiency gains.',
+		introTwo:
+			'The key to turn managers into a strategic leadership layer for your inventory management operations is to make sure they have the data they need to make better decisions.',
+		featureBody:
+			'This could be done using dashboards, easily searchable data, reporting, and even with the help of AI.',
+		items: [],
+		tabs: [],
+		cards: [
+			{
+				tone: 'light',
+				title: 'Monitoring critical inventory management activities can be done quickly with a great KPI-driven dashboard.',
+				stat: '31% of warehouses face workforce efficiency challenges',
+				source: 'Cognitops',
+			},
+			{
+				tone: 'dark',
+				title: 'Organizing task importance by quickly filtering data allows you to keep your team focused on the most relevant tasks.',
+				stat: '31% of warehouses face workforce efficiency challenges',
+				source: 'Cognitops',
+			},
+			{
+				tone: 'light',
+				title: 'Optimize the whole fulfillment center by addressing bottlenecks, streamlining inventory allocation, and fostering continuous improvement.',
+				stat: '31% of warehouses face workforce efficiency challenges',
+				source: 'Cognitops',
+			},
+		],
+	},
+];
+
+const marketplaceLogos = {
+	shopify: '/logos/shopify.avif',
+	amazon: '/logos/amazon.avif',
+	tiktok: '/logos/tiktok.avif',
+	ebay: '/logos/ebay.avif',
+	walmart: '/logos/walmart.avif',
+	etsy: '/logos/Etsy.avif',
+	binlogic: '/logos/mainLogo.svg',
+};
+---
+
+<Layout>
+	<section class="px-6 pb-12 pt-24 md:px-10 md:pb-16 md:pt-30 xl:px-12 xl:pb-20 xl:pt-34">
+		<div class="mx-auto grid max-w-350 gap-10 xl:grid-cols-[minmax(0,1.05fr)_minmax(560px,0.95fr)] xl:items-center xl:gap-12">
+			<div class="max-w-2xl xl:pl-6">
+				<h1 class="text-2xl font-medium leading-[1.04] tracking-[-0.04em] text-[#080F46] sm:text-3xl lg:text-[1rem] xl:text-[3rem] 2xl:text-[3.3rem]">
+					Build &amp; run a world-class order fulfillment operation.
+				</h1>
+				<p class="mt-8 max-w-xl text-lg font-normal leading-8 text-[#2C386A] sm:text-xl sm:leading-9">
+					We've seen many organizations achieve inventory control and order fulfillment mastery, but a common factor always seems to be having a great plan.
+				</p>
+				<div class="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+					<a
+						href="#"
+						class="inline-flex min-w-52 items-center justify-center rounded-full bg-[#0A67AA] px-8 py-4 text-lg font-semibold text-white transition hover:bg-[#085892]"
+					>
+						Get Started
+					</a>
+					<a
+						href="#"
+						class="inline-flex min-w-52 items-center justify-center rounded-full border-[3px] border-[#080F46] px-8 py-4 text-lg font-semibold text-[#080F46] transition hover:bg-[#080F46] hover:text-white"
+					>
+						See Demo
+					</a>
+				</div>
+			</div>
+
+			<div class="fulfillment-mosaic relative overflow-hidden rounded-4xl xl:rounded-[2.4rem]">
+				<div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-7 bg-linear-to-r from-[#F2F2F2] via-[#F2F2F2]/48 to-transparent sm:w-12"></div>
+				<div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-7 bg-linear-to-l from-[#F2F2F2] via-[#F2F2F2]/48 to-transparent sm:w-12"></div>
+				<div class="pointer-events-none absolute inset-x-0 top-0 z-10 h-10 bg-linear-to-b from-[#F2F2F2] via-[#F2F2F2]/42 to-transparent sm:h-14"></div>
+				<div class="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-10 bg-linear-to-t from-[#F2F2F2] via-[#F2F2F2]/42 to-transparent sm:h-14"></div>
+
+				<div class="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-5">
+					{
+						fulfillmentColumns.map((column, columnIndex) => (
+							<div class:list={[
+								"fulfillment-column relative h-136 overflow-hidden sm:h-168 lg:h-192",
+								columnIndex === 2 && 'col-span-2 mx-auto max-w-[18rem] md:col-span-1 md:mx-0 md:max-w-none',
+							]}>
+								<div class="fulfillment-track flex flex-col gap-4 md:gap-5" style={`--loop-duration: ${columnDurations[columnIndex]};`}>
+									{[...column, ...column].map((image, imageIndex) => (
+										<div class="overflow-hidden rounded-[1.4rem] bg-white shadow-[0_18px_40px_rgba(8,15,70,0.10)]" aria-hidden={imageIndex >= column.length ? 'true' : 'false'}>
+											<img
+												src={image.src}
+												alt={imageIndex >= column.length ? '' : image.alt}
+												loading={imageIndex < column.length ? 'eager' : 'lazy'}
+												class:list={['h-full w-full object-cover', image.className]}
+											/>
+										</div>
+									))}
+								</div>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="px-0 pb-16 pt-8 md:pb-24 md:pt-12">
+		<div class="mx-auto max-w-7xl px-6 md:px-10 xl:px-12">
+			<div class="mx-auto max-w-4xl overflow-hidden rounded-4xl bg-[#F8FBFE] px-6 py-12 text-center md:px-10 md:py-16">
+				<div
+					class="rounded-3xl px-4 py-8 md:px-10 md:py-10"
+					style="background-image: linear-gradient(to right, rgba(10,103,170,0.14) 1px, transparent 1px), linear-gradient(to bottom, rgba(10,103,170,0.14) 1px, transparent 1px); background-size: 24px 24px; background-position: center;"
+				>
+					<h2 class="text-4xl font-medium leading-[1.05] tracking-[-0.04em] text-[#080F46] sm:text-5xl lg:text-[3.8rem]">
+						Fulfillment Center Blueprint.
+					</h2>
+					<p class="mx-auto mt-5 max-w-3xl text-lg font-normal leading-8 text-[#213165] sm:text-xl sm:leading-9">
+						Having an operational blueprint is essential to creating and running world-class fulfillment centers.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="mt-10 md:mt-14">
+			<div class="relative h-96 overflow-hidden md:h-112 lg:h-136">
+				<img
+					src="/fulfillment/intro.webp"
+					alt="Warehouse team member working on inventory management planning"
+					loading="lazy"
+					class="h-full w-full scale-110 object-cover object-[58%_0%]"
+				/>
+				<div class="absolute inset-0 bg-linear-to-r from-[#070B1E]/72 via-[#070B1E]/58 to-[#070B1E]/46"></div>
+				<div class="absolute inset-0 flex items-center">
+					<div class="max-w-4xl px-6 py-8 text-white md:px-10 md:py-10 lg:px-20">
+						<h3 class="text-3xl font-light leading-[1.04] tracking-[-0.04em] sm:text-4xl lg:text-[3.25rem]">
+							Order fulfillment starts with building out great processes for <span class="font-semibold">inventory management.</span>
+						</h3>
+						<p class="mt-6 max-w-2xl text-base font-light leading-7 text-white/95 sm:text-lg sm:leading-8">
+							Create great system-driven processes to work with your inventory so your team is prepared to handle any inventory or order fulfillment situation.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="px-0 pb-18 pt-6 md:pb-24 md:pt-10">
+		<div class="space-y-0">
+			{
+				workflowSections.map((section, index) => (
+					<article
+						class:list={[
+							"sticky border-t-10 border-[#00032A] bg-[#F2F2F2]",
+							index === 0 ? 'top-18' : index === 1 ? 'top-24 -mt-20' : 'top-30 -mt-20',
+						]}
+						style={`z-index: ${index + 1};`}
+					>
+						{section.layout === 'grid' ? (
+							<div class="mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-20 xl:px-12">
+								<div class="mx-auto grid max-w-6xl gap-x-16 gap-y-14 lg:grid-cols-2">
+									{
+										section.items.map((item) => (
+											<div class="text-left">
+												<div class="flex items-start gap-5">
+													<span class="mt-1 h-10 w-2 bg-[#0A67AA]"></span>
+													<h3 class="text-xl font-medium leading-tight text-[#363A41] sm:text-2xl lg:text-[2rem]">
+														{item.title}
+													</h3>
+												</div>
+												<div class="mt-5 space-y-6 text-sm font-normal leading-6 text-[#5A5E67] sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
+													{item.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+													{
+														item.quicktip && (
+															<p>
+																<span class="font-semibold text-[#30343C]">Quicktip</span>
+																<span class="italic"> {item.quicktip}</span>
+															</p>
+														)
+													}
+												</div>
+											</div>
+										))
+									}
+								</div>
+							</div>
+						) : section.layout === 'management' ? (
+							<div class="mx-auto max-w-7xl px-6 py-14 md:px-10 md:py-18 xl:px-12">
+								<div class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,34rem)_minmax(0,1fr)] lg:items-start lg:gap-18 xl:gap-24">
+									<div class="flex flex-col gap-6 md:gap-8 lg:pr-4">
+										{
+											section.cards.map((card, cardIndex) => (
+												<div
+													class:list={[
+														"w-full max-w-116 rounded-[1.75rem] px-6 py-6 shadow-[0_18px_36px_rgba(8,15,70,0.06)] md:px-8 md:py-7",
+														card.tone === 'dark' ? 'self-end bg-[#040733] text-white lg:mr-2' : 'self-start bg-white text-[#1B2348]',
+														cardIndex === 0 ? 'lg:ml-0' : '',
+														cardIndex === 2 ? 'lg:ml-0' : '',
+													]}
+												>
+													<p class="text-sm leading-6 sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
+														<span class={card.tone === 'dark' ? 'font-semibold text-white' : 'font-semibold text-[#121A44]'}>
+															{card.title.split(' ')[0]}
+														</span>{' '}
+														{card.title.substring(card.title.indexOf(' ') + 1)}
+													</p>
+													<div class="mt-6 flex items-start gap-4">
+														<span class="mt-1 h-7 w-1 bg-[#0A67AA]"></span>
+														<div>
+															<p class:list={[
+																"text-sm leading-6 sm:text-base sm:leading-7",
+																card.tone === 'dark' ? 'text-white/95' : 'text-[#4F5566]',
+															]}>
+																{card.stat}
+															</p>
+															<p class:list={[
+																"mt-2 text-sm",
+																card.tone === 'dark' ? 'text-white/90' : 'text-[#1B2348]',
+															]}>
+																{card.source}
+															</p>
+														</div>
+													</div>
+												</div>
+											))
+										}
+									</div>
+
+									<div class="flex flex-col items-center text-center lg:items-start lg:text-left">
+										<h3 class="max-w-2xl text-xl font-medium leading-[1.14] tracking-[-0.03em] text-[#080F46] sm:text-2xl lg:text-[2rem]">
+											{section.title}
+										</h3>
+										<p class="mt-6 max-w-2xl text-sm font-normal leading-6 text-[#4A4F63] sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
+											{section.introOne}
+										</p>
+										<p class="mt-6 max-w-2xl text-sm font-normal leading-6 text-[#4A4F63] sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
+											{section.introTwo}
+										</p>
+										<p class="mt-6 max-w-2xl text-sm font-normal leading-6 text-[#4A4F63] sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
+											{section.featureBody}
+										</p>
+
+										<div class="mt-8 w-full overflow-hidden rounded-[1.8rem] bg-slate-200 shadow-[0_24px_48px_rgba(8,15,70,0.12)]">
+											<img
+												src={section.image}
+												alt={section.alt}
+												loading="lazy"
+												class="aspect-[1.9/1] h-full w-full object-cover"
+											/>
+										</div>
+									</div>
+								</div>
+							</div>
+						) : (
+							<div class="mx-auto max-w-7xl px-6 py-14 md:px-10 md:py-18 xl:px-12">
+								<div class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(400px,0.95fr)] lg:items-start lg:gap-12 xl:gap-16">
+									<div class="mx-auto flex w-full max-w-2xl flex-col justify-center text-center lg:mx-0 lg:text-left">
+										<h3 class="text-xl font-medium leading-[1.14] tracking-[-0.03em] text-[#080F46] sm:text-2xl lg:text-[2rem]">
+											{section.title}
+										</h3>
+										<p class="mt-6 text-sm font-normal leading-6 text-[#4A4F63] sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
+											{section.introOne}
+										</p>
+										<p class="mt-6 text-sm font-normal leading-6 text-[#4A4F63] sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
+											{section.introTwo}
+										</p>
+
+										<div class="mt-10 rounded-4xl bg-white px-8 py-8 shadow-[0_20px_48px_rgba(8,15,70,0.08)]">
+											<p class="max-w-xl text-xl font-light leading-[1.2] tracking-[-0.03em] text-[#61656F] sm:text-2xl lg:text-[2rem]">
+												{section.callout}
+											</p>
+											<div class="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-4 lg:justify-start">
+												{
+													section.tabs.map((tab) => (
+														<div class="flex items-center gap-4 text-[#10183F]">
+															<span class="h-7 w-1 bg-[#0A67AA]"></span>
+															<span class="text-base font-medium sm:text-lg">{tab}</span>
+														</div>
+													))
+												}
+											</div>
+										</div>
+									</div>
+
+									<div class="mx-auto flex w-full max-w-2xl flex-col items-center text-center lg:mx-0 lg:items-start lg:text-left">
+										<div class="w-full overflow-hidden rounded-[1.8rem] bg-slate-200 shadow-[0_24px_48px_rgba(8,15,70,0.12)]">
+											<img
+												src={section.image}
+												alt={section.alt}
+												loading="lazy"
+												class="aspect-[1.28/1] h-full w-full object-cover"
+											/>
+										</div>
+
+										<div class="mt-10 w-full">
+											<div class="flex items-start justify-center gap-4 lg:justify-start">
+												<span class="mt-2 h-10 w-2 bg-[#0A67AA]"></span>
+												<h4 class="text-xl font-medium leading-tight text-[#30343C] sm:text-2xl lg:text-[2rem]">
+													{section.featureTitle}
+												</h4>
+											</div>
+											<p class="mt-5 max-w-2xl text-sm font-normal leading-6 text-[#4A4F63] sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
+												{section.featureBody}
+											</p>
+											<p class="mt-6 max-w-2xl text-sm leading-6 text-[#4A4F63] sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
+												<span class="font-semibold text-[#30343C]">Quicktip</span>
+												<span class="italic"> {section.quicktip}</span>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						)}
+					</article>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="px-0 py-0">
+		<div class="relative overflow-hidden border-b-12 border-[#00032A]">
+			<img
+				src="/fulfillment/content/image3.avif"
+				alt="Warehouse worker connecting channels and order fulfillment operations"
+				loading="lazy"
+				class="h-128 w-full object-cover object-[76%_0%] md:h-152 lg:h-164"
+			/>
+			<div class="absolute inset-0 bg-linear-to-r from-[#090E29]/84 via-[#090E29]/62 to-[#090E29]/38"></div>
+			<div class="absolute inset-0 flex items-center">
+				<div class="mx-auto w-full max-w-7xl px-6 md:px-10 xl:px-12">
+					<div class="max-w-4xl text-white">
+						<h3 class="max-w-3xl text-3xl font-light leading-[1.08] tracking-[-0.04em] sm:text-4xl lg:text-[3rem]">
+							<span class="font-semibold">Connecting channels</span> to your inventory &amp; order fulfillment team and vis versa.
+						</h3>
+						<p class="mt-6 max-w-3xl text-base font-light leading-7 text-white/95 sm:text-lg sm:leading-8">
+							Integrate all the places where customers want to buy from you. Give those channels a path to see your inventory availability, send your team orders for order fulfillment, and updates to serve your customers.
+						</p>
+						<a
+							href="#"
+							class="mt-7 inline-flex min-w-72 items-center justify-center rounded-full border-2 border-white px-8 py-4 text-base font-semibold text-white transition hover:bg-white hover:text-[#0A0F2B] sm:text-lg"
+						>
+							See all chanels.
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="px-6 py-16 md:px-10 md:py-22 xl:px-12">
+		<div class="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-start lg:gap-16">
+			<div class="mx-auto w-full max-w-2xl">
+				<h3 class="max-w-xl text-2xl font-medium leading-[1.14] tracking-[-0.03em] text-[#080F46] sm:text-3xl lg:text-[2.65rem]">
+					Let your inventory management system talk to all your channels.
+				</h3>
+
+				<div class="mt-8 overflow-hidden bg-slate-200 shadow-[0_20px_40px_rgba(8,15,70,0.08)]">
+					<img
+						src="/fulfillment/content/image4.avif"
+						alt="Warehouse team member using a system connected to sales channels"
+						loading="lazy"
+						class="aspect-[1.42/1] h-full w-full object-cover rounded-3xl"
+					/>
+				</div>
+
+				<p class="mt-8 max-w-xl text-sm font-normal leading-6 text-[#5A5E67] sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
+					Give your team access to fulfill orders from channels and channels access to your inventory data to know what they can sell to your customers.
+				</p>
+				<p class="mt-8 max-w-xl text-sm font-normal leading-6 text-[#5A5E67] sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
+					Integrations are a great way to connect everything from inventory availability to order fulfillment directly into the channels that need this information.
+				</p>
+			</div>
+
+			<div class="mx-auto flex w-full max-w-2xl flex-col items-center lg:items-stretch gap-12">
+				<div class="relative mx-auto h-96 w-full max-w-136 sm:h-104 md:h-112">
+					<img src={marketplaceLogos.shopify} alt="Shopify" class="absolute left-10 top-10 h-22 w-auto object-contain sm:left-12 md:h-32" />
+					<img src={marketplaceLogos.amazon} alt="Amazon" class="absolute left-1/2 top-2 h-20 w-auto -translate-x-1/2 object-contain md:h-32" />
+					<img src={marketplaceLogos.tiktok} alt="TikTok" class="absolute right-10 top-10 h-20 w-auto object-contain sm:right-12 md:h-32" />
+
+					<div class="absolute left-1/2 top-1/2 w-full max-w-76 -translate-x-1/2 -translate-y-1/2 rounded-4xl bg-white px-8 py-6 text-center shadow-[0_22px_44px_rgba(8,15,70,0.08)]">
+						<img src={marketplaceLogos.binlogic} alt="Binlogic" class="mx-auto h-8 w-auto object-contain" />
+						<p class="mx-auto mt-4 max-w-xs text-sm font-normal leading-6 text-[#34405E] sm:text-base sm:leading-7">
+							Connects to all your channels through pre-built integrations.
+						</p>
+					</div>
+
+					<img src={marketplaceLogos.ebay} alt="eBay" class="absolute bottom-10 left-10 h-20 w-auto object-contain sm:left-12 md:h-32" />
+					<img src={marketplaceLogos.walmart} alt="Walmart" class="absolute bottom-1 left-1/2 h-20 w-auto -translate-x-1/2 object-contain md:h-32" />
+					<img src={marketplaceLogos.etsy} alt="Etsy" class="absolute bottom-10 right-10 h-20 w-auto object-contain sm:right-12 md:h-32" />
+				</div>
+
+				<div class="mt-10 space-y-4">
+					<div class="bg-white px-5 py-4 shadow-[0_18px_40px_rgba(8,15,70,0.06)]">
+						<p class="text-sm leading-6 text-[#4F5566] sm:text-base sm:leading-7">
+							<span class="font-semibold text-[#30343C]">Inventory availability</span> is sent directly to each channel based on whats already been counted by your team.
+						</p>
+					</div>
+					<div class="bg-white px-5 py-4 shadow-[0_18px_40px_rgba(8,15,70,0.06)]">
+						<p class="text-sm leading-6 text-[#4F5566] sm:text-base sm:leading-7">
+							<span class="font-semibold text-[#30343C]">Order fulfillment</span> requests are automatically sent to your team to be picked and packed.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="px-0 py-0">
+		<div class="relative overflow-hidden border-b-12 border-[#00032A]">
+			<img
+				src="/fulfillment/content/image5.avif"
+				alt="Worker using shipping carriers to complete customer deliveries"
+				loading="lazy"
+				class="h-128 w-full object-cover object-[30%_0%] md:h-152 lg:h-164"
+			/>
+			<div class="absolute inset-0 bg-linear-to-r from-[#0B102B]/54 via-[#0B102B]/58 to-[#0B102B]/64"></div>
+			<div class="absolute inset-0 flex items-center">
+				<div class="mx-auto grid w-full max-w-7xl px-6 md:px-10 xl:px-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+					<div class="hidden lg:block relative"></div>
+					<div class="w-full text-white lg:justify-self-end lg:pl-20 xl:pl-28">
+						<h3 class="text-3xl font-light leading-[1.06] tracking-[-0.04em] sm:text-4xl lg:text-[3.2rem]">
+							Getting orders to customers <span class="font-semibold">using shipping carriers</span> to finalize order fulfillment.
+						</h3>
+						<p class="mt-7 max-w-4xl text-base font-light leading-7 text-white/95 sm:text-lg sm:leading-8">
+							Put products into the hands of consumers quickly whether you choose to use shipping carriers, your own transportation options, or even leverage customer pickups as an option.
+						</p>
+						<a
+							href="#"
+							class="mt-8 inline-flex min-w-72 items-center justify-center rounded-full border-2 border-white px-8 py-4 text-base font-semibold text-white transition hover:bg-white hover:text-[#0A0F2B] sm:text-lg"
+						>
+							See all carriers
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="px-6 pb-18 pt-18 md:px-10 md:pb-24 md:pt-24 xl:px-12 xl:pb-28 xl:pt-28">
+		<div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:gap-20">
+			<div class="max-w-3xl">
+				<h3 class="max-w-2xl text-xl font-medium leading-[1.18] tracking-[-0.03em] text-[#080F46] sm:text-2xl lg:text-[2rem]">
+					Use transportation logistics as a way to convert customers into die hard fans.
+				</h3>
+
+				<div class="mt-8 space-y-8 text-xs font-normal leading-5 text-[#555A66] sm:text-sm sm:leading-6 lg:text-base lg:leading-7">
+					<p>
+						The last step of the order fulfillment chain can be challenging and complex if not managed correctly, and even hurt your reputation with customers. A well planned shipping to delivery step helps win customer loyalty.
+					</p>
+					<p>
+						Typically a great starting point is to map customer expectations, like what shipping options they chose at checkout to what that means for your fulfillment team.
+					</p>
+					<p>
+						Leveraging software to translate this, and optimize processes for the last step of order fulfillment translate to happier customers, faster delivery times, and lower costs.
+					</p>
+				</div>
+			</div>
+
+			<div class="max-w-3xl lg:justify-self-end">
+				<div class="space-y-10 text-xs font-normal leading-5 text-[#555A66] sm:text-sm sm:leading-6 lg:text-base lg:leading-7">
+					<p>
+						Step 1 - Map what comes from the channel at checkout to actual shipping methods and processes your team understands to bridge the gap.
+					</p>
+					<p>
+						Step 2 - At the time of order fulfillment, in your shipping process leverage rate-shopping and requirement rules to balance speed and cost to get products to consumers.
+					</p>
+					<p>
+						Step 3 - Check deliveries or set up automatic checks to make sure that orders have been delivered to or picked up by the customer.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="px-6 pb-20 pt-8 md:px-10 md:pb-28 md:pt-12 xl:px-12 xl:pb-32">
+		<div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-16 xl:gap-20">
+			<div class="mx-auto w-full max-w-3xl">
+				<img
+					src="/fulfillment/content/image6.avif"
+					alt="Binlogic order fulfillment platform across desktop, mobile, and hardware"
+					loading="lazy"
+					class="w-full object-contain"
+				/>
+			</div>
+
+			<div class="max-w-3xl lg:justify-self-end">
+				<h3 class="max-w-2xl text-3xl font-medium leading-[1.08] tracking-[-0.04em] text-[#080F46] sm:text-4xl lg:text-[3.25rem]">
+					A complete order fulfillment platform.
+				</h3>
+
+				<p class="mt-8 max-w-2xl text-sm font-normal leading-6 text-[#4F5566] sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
+					Explore what the whole platform has to offer across our technology products and integrations with other great solutions offered by our trusted partners.
+				</p>
+
+				<div class="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+					<a
+						href="#"
+						class="inline-flex min-w-52 items-center justify-center rounded-full bg-[#0A67AA] px-8 py-4 text-base font-semibold text-white transition hover:bg-[#085892] sm:text-lg"
+					>
+						Get Started
+					</a>
+					<a
+						href="#"
+						class="inline-flex min-w-52 items-center justify-center rounded-full border-[3px] border-[#080F46] px-8 py-4 text-base font-semibold text-[#080F46] transition hover:bg-[#080F46] hover:text-white sm:text-lg"
+					>
+						Learn More
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.fulfillment-mosaic {
+		background: transparent;
+	}
+
+	.fulfillment-track {
+		animation: fulfillment-scroll var(--loop-duration) linear infinite;
+		will-change: transform;
+	}
+
+	.fulfillment-column:hover .fulfillment-track {
+		animation-play-state: paused;
+	}
+
+	@keyframes fulfillment-scroll {
+		from {
+			transform: translateY(0);
+		}
+
+		to {
+			transform: translateY(calc(-50% - 0.625rem));
+		}
+	}
+
+	@media (min-width: 768px) {
+		@keyframes fulfillment-scroll {
+			from {
+				transform: translateY(0);
+			}
+
+			to {
+				transform: translateY(calc(-50% - 0.75rem));
+			}
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.fulfillment-track {
+			animation: none;
+		}
+	}
+</style>
