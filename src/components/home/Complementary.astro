@@ -1,0 +1,281 @@
+---
+const useCaseCards = [
+	{
+		image: "/images/image4.avif",
+		alt: "Warehouse inventory workflow",
+		title: "Ecommerce Operations",
+		description:
+			"Give your team better visibility into inventory so customers can trust what is available and when it can ship.",
+	},
+	{
+		image: "/images/image5.avif",
+		alt: "Retail service workflow",
+		title: "Retail Coordination",
+		description:
+			"Keep store and backroom activity aligned with stronger stock control and cleaner day-to-day replenishment.",
+	},
+	{
+		image: "/images/image6.avif",
+		alt: "Specialized inventory use case",
+		title: "Specialized Workflows",
+		description:
+			"Support unique inventory processes with flexible workflows that help teams stay accurate and move faster.",
+	},
+];
+
+	const stackedShowcaseCards = [
+		{
+			image: "/images/image7.avif",
+			alt: "Warehouse shelving and stock overview",
+			title: "Get started with mobile-first inventory control.",
+			description:
+				"Binlogic simplifies inventory management by helping team members to organize the work they already do and become more productive. To get started, have your team download our lightweight inventory control app, Shelfter, so they can receive, count, and fulfill products while updating your central systems.",
+		},
+		{
+			image: "/images/image8.avif",
+			alt: "Warehouse worker organizing inventory",
+			title: "Professionalize your Inventory Management.",
+			description:
+				"Whether you have one facility that needs inventory management or many facilities that work together in a logistics network. We give the management team and supporting team members a way to monitor the work that they are doing, work together to get things done, and automate repetitive work based on your processes.",
+		},
+		{
+			image: "/images/image9.avif",
+			alt: "Inventory aisle with stacked products",
+			title: "Extend the capabilities of your organization.",
+			description:
+				"Getting your organization to peak inventory management isn't the only thing we can help with. Our platform of products gives you a seamless way to tackle everything from channel integration to shipping logistics.",
+		},
+	];
+---
+
+<section class="px-6 py-16 md:px-10 md:py-24">
+	<div class="mx-auto max-w-7xl">
+		<div class="grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-12">
+			<div class="relative min-h-88 overflow-hidden rounded-[2.5rem] lg:min-h-128">
+				<img
+					src="/images/image3.avif"
+					alt="Warehouse team member reviewing packaged goods"
+					loading="lazy"
+					class="absolute inset-0 h-full w-full object-cover"
+				/>
+			</div>
+
+			<div class="py-4 lg:py-8">
+				<p class="text-sm font-semibold uppercase tracking-[0.24em] text-[#0060A8]">
+					Use Case Highlight
+				</p>
+				<h2 class="mt-4 text-3xl font-semibold leading-tight text-[#0B1245] sm:text-4xl lg:text-5xl">
+					See how to shape a stronger fulfillment workflow with Binlogic.
+				</h2>
+				<p class="mt-6 max-w-2xl text-base font-light leading-7 text-[#0B1245]/85 sm:text-lg sm:leading-8 md:text-xl md:leading-10">
+					Build a more reliable in-house operation with clearer processes, faster handoffs, and a setup designed to support better customer experiences.
+				</p>
+				<a
+					href="#"
+					class="mt-10 inline-flex w-full items-center justify-center rounded-full border-2 border-[#0B1245] px-6 py-3 text-lg font-semibold text-[#0B1245] transition hover:bg-[#0B1245] hover:text-white sm:w-auto"
+				>
+					Learn More
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="px-6 pb-16 md:px-10 md:pb-24" data-metrics-section>
+	<div class="mx-auto max-w-7xl">
+		<div class="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-start lg:gap-16">
+			<div>
+				<h2 class="max-w-3xl text-3xl font-semibold leading-tight text-[#0B1245] sm:text-4xl lg:text-5xl">
+					Leading organizations leverage us to transform operations across industries.
+				</h2>
+			</div>
+
+			<div class="grid gap-8 sm:grid-cols-3 sm:gap-6 lg:gap-8">
+				<div>
+					<p
+						class="text-5xl font-semibold leading-none text-[#0B1245] md:text-6xl lg:text-7xl"
+						data-metric-value
+						data-target="30"
+						data-suffix="%"
+					>
+						30%
+					</p>
+					<p class="mt-4 max-w-48 text-xl font-light leading-8 text-[#0B1245] md:text-2xl md:leading-9">
+						Decrease in stockouts and overselling.
+					</p>
+				</div>
+
+				<div>
+					<p
+						class="text-5xl font-semibold leading-none text-[#0B1245] md:text-6xl lg:text-7xl"
+						data-metric-value
+						data-target="99"
+						data-suffix="%"
+					>
+						99%
+					</p>
+					<p class="mt-4 max-w-52 text-xl font-light leading-8 text-[#0B1245] md:text-2xl md:leading-9">
+						Picking accuracy with barcode scanning.
+					</p>
+				</div>
+
+				<div>
+					<p
+						class="text-5xl font-semibold leading-none text-[#0B1245] md:text-6xl lg:text-7xl"
+						data-metric-value
+						data-target="5"
+						data-prefix="3-"
+						data-suffix="X"
+					>
+						3-5X
+					</p>
+					<p class="mt-4 max-w-56 text-xl font-light leading-8 text-[#0B1245] md:text-2xl md:leading-9">
+						Faster fulfillment versus manual processes.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="px-6 pb-16 md:px-10 md:pb-24">
+	<div class="mx-auto max-w-7xl">
+		<div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3 xl:gap-12">
+			{
+				useCaseCards.map((card) => (
+					<article>
+						<div class="overflow-hidden rounded-4xl bg-slate-200 shadow-lg shadow-slate-900/5 ring-1 ring-slate-200">
+							<img
+								src={card.image}
+								alt={card.alt}
+								loading="lazy"
+								class="aspect-5/4 h-full w-full object-cover"
+							/>
+						</div>
+						<h3 class="mt-6 text-2xl font-semibold leading-tight text-[#0B1245] md:text-2xl">
+							{card.title}
+						</h3>
+						<p class="mt-4 max-w-md text-md font-light leading-8 text-[#0B1245]/85 md:text-xl md:leading-10">
+							{card.description}
+						</p>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<section
+	class="border-[#00032A] px-0 py-16 md:py-24"
+>
+	<div class="space-y-0">
+		{
+			stackedShowcaseCards.map((card, index) => (
+				<article
+					class:list={[
+						"sticky overflow-hidden border-t-15 border-[#00032A]",
+						index === 0 ? "top-20" : index === 1 ? "top-28 -mt-24" : "top-36 -mt-24",
+					]}
+					style={`z-index: ${index + 1};`}
+				>
+					<div class="relative min-h-[65vh] w-full md:min-h-[70vh]">
+						<img
+							src={card.image}
+							alt={card.alt}
+							loading="lazy"
+							class="absolute inset-0 h-full w-full object-cover"
+						/>
+						<div class="absolute inset-0 bg-[#00032A]/60"></div>
+						<div class="relative z-10 flex min-h-[65vh] items-center px-6 py-10 md:min-h-[70vh] md:px-10 md:py-14">
+							<div class="max-w-2xl text-white">
+								<h3 class="text-2xl font-semibold leading-tight sm:text-3xl md:text-4xl">
+									{card.title}
+								</h3>
+								<p class="mt-4 max-w-xl text-sm font-light leading-7 text-white/90 sm:text-base md:text-lg md:leading-8">
+									{card.description}
+								</p>
+							</div>
+						</div>
+					</div>
+				</article>
+			))
+		}
+	</div>
+</section>
+
+<section class="px-6 py-20 md:px-10 md:py-28">
+	<div class="mx-auto max-w-6xl text-center">
+		<h2 class="mx-auto max-w-5xl text-balance text-4xl font-medium leading-[1.08] tracking-[-0.03em] text-[#080F46] sm:text-2xl md:text-4xl lg:text-[3rem]">
+			Let's see how we can help your organization with Inventory Management today.
+		</h2>
+		<div class="mt-10 flex flex-col items-center justify-center gap-4 sm:mt-12 sm:flex-row">
+			<a
+				href="#"
+				class="inline-flex min-w-52 items-center justify-center rounded-full bg-[#0A6AB6] px-8 py-4 text-lg font-semibold text-white transition hover:bg-[#085995]"
+			>
+				Get Started
+			</a>
+			<a
+				href="#"
+				class="inline-flex min-w-52 items-center justify-center rounded-full border-[3px] border-[#080F46] px-8 py-4 text-lg font-semibold text-[#080F46] transition hover:bg-[#080F46] hover:text-white"
+			>
+				Talk to our team
+			</a>
+		</div>
+	</div>
+</section>
+
+<script>
+const metricsSection = document.querySelector("[data-metrics-section]");
+
+if (metricsSection) {
+	const metricValues = Array.from(
+		metricsSection.querySelectorAll<HTMLElement>("[data-metric-value]")
+	);
+	let hasAnimated = false;
+
+	const animateMetric = (element: HTMLElement) => {
+		const target = Number(element.dataset.target || 0);
+		const prefix = element.dataset.prefix || "";
+		const suffix = element.dataset.suffix || "";
+		const duration = 1400;
+		const startTime = performance.now();
+
+		const step = (currentTime: number) => {
+			const elapsed = currentTime - startTime;
+			const progress = Math.min(elapsed / duration, 1);
+			const eased = 1 - Math.pow(1 - progress, 3);
+			const value = Math.round(target * eased);
+
+			element.textContent = `${prefix}${value}${suffix}`;
+
+			if (progress < 1) {
+				window.requestAnimationFrame(step);
+			}
+		};
+
+		element.textContent = `${prefix}0${suffix}`;
+		window.requestAnimationFrame(step);
+	};
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			const isVisible = entries.some((entry) => entry.isIntersecting);
+
+			if (!isVisible || hasAnimated) {
+				return;
+			}
+
+			hasAnimated = true;
+			metricValues.forEach((element) => animateMetric(element));
+			observer.disconnect();
+		},
+		{
+			threshold: 0.35,
+		}
+	);
+
+	observer.observe(metricsSection);
+}
+</script>
+

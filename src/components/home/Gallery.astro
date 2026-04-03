@@ -1,0 +1,95 @@
+---
+const galleryImages = [
+    {
+        src: "/images/gallery1/image1.avif",
+        alt: "Gallery image 1",
+        frameClass: "h-[22rem] md:h-[24rem]",
+    },
+    {
+        src: "/images/gallery1/image2.avif",
+        alt: "Gallery image 2",
+        frameClass: "h-[18rem] md:h-[18.5rem]",
+    },
+    {
+        src: "/images/gallery1/image3.avif",
+        alt: "Gallery image 3",
+        frameClass: "h-[23rem] md:h-[25.25rem]",
+    },
+    {
+        src: "/images/gallery1/image4.avif",
+        alt: "Gallery image 4",
+        frameClass: "h-[18rem] md:h-[15.25rem]",
+    },
+    {
+        src: "/images/gallery1/image5.avif",
+        alt: "Gallery image 5",
+        frameClass: "h-[21rem] md:h-[20rem]",
+    },
+    {
+        src: "/images/gallery1/image6.avif",
+        alt: "Gallery image 6",
+        frameClass: "h-[18rem] md:h-[14.25rem]",
+    },
+];
+
+const galleryColumns = [
+    [galleryImages[0], galleryImages[3]],
+    [galleryImages[1], galleryImages[4]],
+    [galleryImages[2], galleryImages[5]],
+];
+---
+
+<section class="px-6 py-16 md:px-10 md:py-24">
+    <div class="mx-auto max-w-6xl">
+        <div class="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-8">
+            {
+                galleryColumns.map((column) => (
+                    <div class="flex flex-col gap-5 md:gap-8">
+                        {
+                            column.map((image) => (
+                                <figure class="group">
+                                    <div
+                                        class:list={[
+                                            "overflow-hidden rounded-[1.75rem] bg-neutral-200 shadow-lg shadow-black/10",
+                                            image.frameClass,
+                                        ]}
+                                    >
+                                        <img
+                                            src={image.src}
+                                            alt={image.alt}
+                                            loading="lazy"
+                                            class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+                                        />
+                                    </div>
+                                </figure>
+                            ))
+                        }
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<section class="px-0 pb-16 md:pb-24">
+    <div class="relative min-h-88 w-full overflow-hidden md:min-h-120">
+        <img
+            src="/images/image1.avif"
+            alt="Inventory management journey"
+            loading="lazy"
+            class="absolute inset-0 h-full w-full object-cover"
+        />
+        <div class="absolute inset-0 bg-black/50"></div>
+
+        <div class="relative mx-auto flex min-h-88 max-w-6xl items-center justify-center px-6 py-12 text-white md:min-h-120 md:px-10">
+            <div class="max-w-3xl text-center">
+                <h2 class="text-3xl font-light leading-tight md:text-5xl">
+                    Take the journey towards the peak of inventory management.
+                </h2>
+                <p class="mt-4 text-lg font-light leading-7 text-white/90 md:text-2xl md:leading-9">
+                    Stop settling for workarounds, spreadsheets, manual processes, or bad software.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

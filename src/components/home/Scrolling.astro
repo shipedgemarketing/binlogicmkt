@@ -1,0 +1,194 @@
+---
+const steps = [
+	{
+		title: "Inbound Receiving",
+		subtitle: "Receive, inspect, and count your products.",
+		description:
+			"From the moment inventory arrives at your facility, Binlogic helps your team organize receiving with accurate workflows for inspection, counting, and intake.",
+		image: "/images/gallery2/image1.avif",
+		imageAlt: "Inventory receiving workflow",
+	},
+	{
+		title: "Inventory Management",
+		subtitle: "Store, move, and recount inventory.",
+		description:
+			"Know how much stock you have and where it lives. Keep inventory accurate with workflows for counting, relocating, and removing damaged or expired items.",
+		image: "/images/gallery2/image2.avif",
+		imageAlt: "Inventory management workflow",
+	},
+	{
+		title: "Outbound Fulfillment",
+		subtitle: "Pick, pack, and ship using what's in stock.",
+		description:
+			"Move orders out with confidence using the inventory already on hand, whether your customers want shipping or local pickup from your operation.",
+		image: "/images/gallery2/image3.avif",
+		imageAlt: "Outbound fulfillment workflow",
+	},
+];
+---
+
+<section class="px-6 py-16 md:px-10 md:py-24" data-scroll-journey>
+	<div class="mx-auto max-w-6xl">
+		<div class="mb-12 max-w-3xl text-center md:mb-16 md:text-left">
+			<p class="text-sm font-semibold uppercase tracking-[0.24em] text-[#0060A8]">
+				Journey Map
+			</p>
+			<h2 class="mt-3 text-3xl font-semibold leading-tight text-slate-950 md:text-5xl">
+				Take the journey towards the peak of inventory management.
+			</h2>
+			<p class="mt-4 text-lg font-light leading-7 text-slate-700 md:text-xl">
+				Follow each operational stage as the process moves from inbound receiving to inventory control and outbound fulfillment.
+			</p>
+		</div>
+
+		<div class="relative" data-steps-list>
+			<div class="hidden lg:block absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-slate-300"></div>
+			<div class="hidden lg:block absolute left-1/2 top-0 w-px -translate-x-1/2 bg-[#0060A8] transition-[height] duration-200 ease-out" style="height: 0%;" data-progress-line></div>
+
+			<div class="flex flex-col gap-10 md:gap-12 lg:gap-16">
+				{
+					steps.map((step, index) => (
+						<article
+							class="grid items-center gap-6 lg:grid-cols-[minmax(0,1fr)_5rem_minmax(0,1fr)] lg:gap-8"
+							data-step
+							data-index={index}
+						>
+							<figure class="group overflow-hidden rounded-4xl bg-slate-950 shadow-xl shadow-slate-900/15 ring-1 ring-slate-200 transition duration-300" data-step-image-wrap>
+								<div class="relative aspect-5/4">
+									<img
+										src={step.image}
+										alt={step.imageAlt}
+										loading={index === 0 ? "eager" : "lazy"}
+										class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+									/>
+									<div class="absolute inset-0 bg-linear-to-t from-slate-950/35 via-transparent to-transparent"></div>
+								</div>
+							</figure>
+
+							<div class="relative hidden h-full lg:flex items-center justify-center">
+								<span
+									class="relative z-10 block h-5 w-5 rounded-full border-4 border-white bg-slate-300 shadow-[0_0_0_1px_rgba(148,163,184,0.6)] transition duration-300"
+									data-step-dot
+								></span>
+							</div>
+
+							<div class="rounded-[1.75rem] bg-white/90 p-6 shadow-lg shadow-slate-900/5 ring-1 ring-slate-200 backdrop-blur-sm transition duration-300 md:p-8" data-step-card>
+								<p class="text-sm font-semibold uppercase tracking-[0.24em] text-[#0060A8]">
+									Step {index + 1}
+								</p>
+								<h3 class="mt-3 text-2xl font-semibold text-slate-950 md:text-3xl">
+									{step.title}
+								</h3>
+								<h4 class="mt-3 text-lg font-medium leading-7 text-slate-900 md:text-xl">
+									{step.subtitle}
+								</h4>
+								<p class="mt-4 text-base font-light leading-7 text-slate-700 md:text-lg">
+									{step.description}
+								</p>
+							</div>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="pb-16 md:pb-24">
+	<div class="relative min-h-88 w-full overflow-hidden md:min-h-120">
+		<img
+			src="/images/image2.avif"
+			alt="Journey to great inventory management"
+			loading="lazy"
+			class="absolute inset-0 h-full w-full object-cover"
+		/>
+		<div class="absolute inset-0 bg-black/50"></div>
+
+		<div class="relative mx-auto flex min-h-88 max-w-6xl items-center justify-center px-6 py-12 md:min-h-120 md:px-10">
+			<h2 class="max-w-4xl text-center text-3xl font-semibold leading-tight text-white md:text-5xl">
+				...the journey to great inventory management starts with a first step.
+			</h2>
+		</div>
+	</div>
+</section>
+
+<script>
+const scrollJourney = document.querySelector("[data-scroll-journey]");
+
+if (scrollJourney) {
+	const steps = Array.from(scrollJourney.querySelectorAll<HTMLElement>("[data-step]"));
+	const dots = Array.from(scrollJourney.querySelectorAll<HTMLElement>("[data-step-dot]"));
+	const imageWraps = Array.from(scrollJourney.querySelectorAll<HTMLElement>("[data-step-image-wrap]"));
+	const cards = Array.from(scrollJourney.querySelectorAll<HTMLElement>("[data-step-card]"));
+	const progressLine = scrollJourney.querySelector<HTMLElement>("[data-progress-line]");
+	let activeIndex = 0;
+
+	const setActiveStep = (activeIndex: number) => {
+		steps.forEach((step, index) => {
+			const isActive = index === activeIndex;
+
+			dots[index]?.classList.toggle("bg-[#0060A8]", isActive);
+			dots[index]?.classList.toggle("bg-slate-300", !isActive);
+			dots[index]?.classList.toggle("scale-110", isActive);
+			dots[index]?.classList.toggle("shadow-[0_0_0_1px_rgba(0,96,168,0.25)]", isActive);
+			cards[index]?.classList.toggle("ring-[#0060A8]/20", isActive);
+			cards[index]?.classList.toggle("shadow-xl", isActive);
+			cards[index]?.classList.toggle("shadow-[#0060A8]/10", isActive);
+			imageWraps[index]?.classList.toggle("ring-[#0060A8]/20", isActive);
+			imageWraps[index]?.classList.toggle("shadow-2xl", isActive);
+			imageWraps[index]?.classList.toggle("shadow-[#0060A8]/10", isActive);
+		});
+	};
+
+	const updateProgress = () => {
+		if (progressLine) {
+			const rect = scrollJourney.getBoundingClientRect();
+			const viewportHeight = window.innerHeight;
+			const start = viewportHeight * 0.2;
+			const end = rect.height - viewportHeight * 0.2;
+			const distance = Math.max(end, 1);
+			const progress = Math.min(Math.max((start - rect.top) / distance, 0), 1) * 100;
+			progressLine.style.height = `${progress}%`;
+		}
+	};
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			const visibleEntry = entries
+				.filter((entry) => entry.isIntersecting)
+				.sort((left, right) => right.intersectionRatio - left.intersectionRatio)[0];
+
+			if (!visibleEntry) {
+				return;
+			}
+
+			activeIndex = Number(visibleEntry.target.getAttribute("data-index") || 0);
+			setActiveStep(activeIndex);
+		},
+		{
+			threshold: [0.25, 0.5, 0.75],
+			rootMargin: "-15% 0px -15% 0px",
+		}
+	);
+
+	steps.forEach((step) => observer.observe(step));
+	setActiveStep(0);
+	updateProgress();
+
+	let ticking = false;
+	const requestProgressUpdate = () => {
+		if (ticking) {
+			return;
+		}
+
+		ticking = true;
+		window.requestAnimationFrame(() => {
+			updateProgress();
+			ticking = false;
+		});
+	};
+
+	window.addEventListener("scroll", requestProgressUpdate, { passive: true });
+	window.addEventListener("resize", requestProgressUpdate);
+}
+</script>

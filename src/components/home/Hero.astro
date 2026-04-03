@@ -1,0 +1,150 @@
+---
+
+---
+
+<section class="px-6 py-16 md:px-10 md:py-20 pt-32 md:pt-48 w-full">
+    <div class="mx-auto flex flex-col gap-6 items-center text-center">
+        <p class="font-light text-2xl">We get it</p>
+        <h1 class="text-5xl">organizing and managing your <br/> inventory can be hard</h1>
+        <p class="font-light text-2xl">but it doesn't have to be.</p>
+    </div>
+    <div class="mx-auto w-full max-w-5xl mt-16">
+        <div
+            class="relative overflow-hidden rounded-3xl bg-black shadow-2xl aspect-video"
+        >
+            <video
+                class="h-full w-full object-cover"
+                autoplay
+                muted
+                loop
+                playsinline
+            >
+                <source src="/video/heroVideo.mp4" type="video/mp4" />
+            </video>
+
+            <div class="absolute inset-0 bg-black/60"></div>
+
+            <div class="absolute inset-0 flex items-center">
+                <div class="max-w-xl px-6 text-left text-white md:px-10">
+                    <section class="hidden md:block">
+                        <h1
+                            class="text-3xl font-semibold leading-tight md:text-5xl"
+                        >
+                            Easy <span class="text-[#15DEF9]">Inventory</span>
+                        </h1>
+                        <h1
+                            class="text-3xl font-semibold leading-tight md:text-5xl text-[#15DEF9]"
+                        >
+                            Management
+                        </h1>
+                        <h1
+                            class="text-3xl font-semibold leading-tight md:text-5xl text-white"
+                        >
+                            Software
+                        </h1>
+                        <p class="mt-4 text-xl leading-7 text-white/80">
+                            Binlogic empowers businesses with efficient <br />
+                            inventory control solutions that are drop in and go! No more
+                            spreadsheets, manual processes, or software solutions no fit
+                            for purpose.
+                        </p>
+                    </section>
+                    <div class="flex flex-row gap-12 mt-12">
+                        <button
+                            type="button"
+                            class="bg-transparent border-2 border-white flex flex-row gap-2 p-2 rounded-2xl cursor-pointer md:hidden justify-center w-auto"
+                            data-video-trigger
+                        >
+                            <h2>See The Magic</h2>
+                            <i> &#9658; </i>
+                        </button>
+                        <button
+                            type="button"
+                            class="bg-[#0060A8] px-6 py-2 hidden md:flex flex-row gap-4 rounded-2xl cursor-pointer"
+                            data-video-trigger
+                        >
+                            <h2>See The Magic</h2>
+                            <i> &#9658; </i>
+                        </button>
+                        <button 
+                            class="bg-transparent border-white border-2 rounded-2xl py-1 px-6 hidden md:block"
+                        >
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 px-6"
+    data-video-modal
+>
+    <div class="relative w-full max-w-4xl overflow-hidden rounded-3xl bg-black shadow-2xl aspect-video">
+        <button
+            type="button"
+            class="absolute right-4 top-4 z-10 rounded-full bg-white/15 px-3 py-1 text-sm text-white"
+            aria-label="Close video"
+            data-video-close
+        >
+            Close
+        </button>
+        <iframe
+            class="h-full w-full"
+            title="See The Magic"
+            data-video-frame
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+        ></iframe>
+    </div>
+</div>
+
+<script>
+const videoUrl = "https://www.youtube.com/embed/w5iOVYKkXUA?autoplay=1";
+const videoTriggers = document.querySelectorAll("[data-video-trigger]");
+const videoModal = document.querySelector("[data-video-modal]");
+const videoFrame = document.querySelector("[data-video-frame]");
+const closeButton = document.querySelector("[data-video-close]");
+
+const openVideo = () => {
+    if (!videoModal || !videoFrame) {
+        return;
+    }
+
+    videoFrame.setAttribute("src", videoUrl);
+    videoModal.classList.remove("hidden");
+    videoModal.classList.add("flex");
+    document.body.classList.add("overflow-hidden");
+};
+
+const closeVideo = () => {
+    if (!videoModal || !videoFrame) {
+        return;
+    }
+
+    videoFrame.setAttribute("src", "");
+    videoModal.classList.add("hidden");
+    videoModal.classList.remove("flex");
+    document.body.classList.remove("overflow-hidden");
+};
+
+videoTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", openVideo);
+});
+
+closeButton?.addEventListener("click", closeVideo);
+
+videoModal?.addEventListener("click", (event) => {
+    if (event.target === videoModal) {
+        closeVideo();
+    }
+});
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        closeVideo();
+    }
+});
+</script>
