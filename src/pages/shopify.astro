@@ -1,0 +1,692 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const inventoryChallenges = [
+	{
+		icon: 'hidden',
+		title: 'Stop Displaying Inaccurate Stock Availability.',
+		paragraphs: [
+			"It's important to have accurate availability on your store, but who wants to spend their day manually updating or uploading inventory counts?",
+			'Not having real-time inventory leads to customer disappointment, missed opportunities, and bad reviews.',
+		],
+	},
+	{
+		icon: 'time',
+		title: 'No more, Time-Consuming Stock Management',
+		paragraphs: [
+			'Are you or your team still doing manual data entry, working off spreadsheets or dare I say... paper?',
+			"Those wasted hours don't just drain payroll, they can lead to frustrating human error, staff turnover, and cause team burnout.",
+		],
+	},
+	{
+		icon: 'clipboard',
+		title: 'Never Lose or Misplace Products Again.',
+		paragraphs: [
+			'What happens when a simple order sends your staff on a frantic scavenger hunt through a chaotic warehouse?',
+			'You end up overbuying stock, slowing down fulfillment, or refunding customers.',
+		],
+	},
+];
+
+const overlapPanels = [
+	{
+		id: 1,
+		title: 'We connected directly into your Shopify store.',
+		body:
+			'Workflow-driven changes to your physical inventory automatically update your Shopify location inventory. Preventing overselling and helping to maintain accurate stock levels without doing manual updates.',
+		imageSide: 'right',
+		textAlign: 'left',
+		imageSrc: '/shopify/image6.avif',
+		imageAlt: 'Merchant reacting happily while reviewing Shopify activity on a laptop',
+		overlayCards: [
+			{
+				src: '/shopify/image5.avif',
+				alt: 'Shopify storefront product catalog interface',
+				wrapperClass:
+					'absolute left-[2%] top-[40%] w-[42%] min-w-46 max-w-68 rounded-[1.35rem] bg-[#0B0B0F] p-2 shadow-[0_22px_50px_rgba(0,0,0,0.28)] sm:left-0 sm:top-[37%] sm:w-[40%] sm:min-w-56 sm:p-3 lg:left-[-4%] lg:top-[36%] lg:max-w-76',
+				imageClass: 'block w-full rounded-2xl',
+			},
+		],
+	},
+	{
+		id: 2,
+		title: 'Better decision-making for you and your customers.',
+		body:
+			'When you and your customers are all on the same page with inventory, you can analyze trends, make informed decisions to optimize stock levels or improve sales and your customers can buy with confidence.',
+		imageSide: 'left',
+		textAlign: 'right',
+		imageSrc: '/shopify/image7.avif',
+		imageAlt: 'Shopper using a laptop while completing an online order',
+		overlayCards: [
+			{
+				src: '/shopify/image9.avif',
+				alt: 'Shopping cart and order summary interface',
+				wrapperClass:
+					'absolute -left-[8%] top-[30%] w-[34%] min-w-40 max-w-60 overflow-hidden rounded-2xl bg-white shadow-[0_18px_40px_rgba(8,15,70,0.16)] sm:-left-[10%] sm:top-[30%] sm:min-w-52 lg:-left-[8%] lg:top-[30%] lg:max-w-64',
+				imageClass: 'block w-full',
+			},
+			{
+				src: '/shopify/image8.avif',
+				alt: 'Order confirmation notification card',
+				wrapperClass:
+					'absolute left-[10%] top-[40%] w-[24%] min-w-32 max-w-44 overflow-hidden rounded-2xl bg-white shadow-[0_18px_40px_rgba(8,15,70,0.16)] sm:left-[14%] sm:top-[41%] sm:min-w-36 lg:left-[12%] lg:top-[40%] lg:max-w-48',
+				imageClass: 'block w-full',
+			},
+		],
+	},
+	{
+		id: 3,
+		title: 'Better decision-making for you and your customers.',
+		body:
+			'When you and your customers are all on the same page with inventory, you can analyze trends, make informed decisions to optimize stock levels or improve sales and your customers can buy with confidence.',
+		imageSide: 'left',
+		textAlign: 'right',
+		imageSrc: '/shopify/image11.avif',
+		imageAlt: 'Merchant reviewing notes beside a laptop while analyzing performance',
+		overlayCards: [
+			{
+				src: '/shopify/image10.avif',
+				alt: 'Sales report analytics chart',
+				wrapperClass:
+					'absolute -left-[10%] top-[18%] w-[42%] min-w-48 max-w-72 overflow-hidden rounded-2xl bg-white shadow-[0_22px_50px_rgba(8,15,70,0.16)] sm:-left-[12%] sm:top-[18%] sm:min-w-60 lg:-left-[9%] lg:top-[16%] lg:max-w-80',
+				imageClass: 'block w-full',
+			},
+		],
+	},
+];
+
+const organizationSegments = [
+	{
+		id: 'owners',
+		title: 'Shopify Store Owners',
+		body:
+			'Independent retailers use our free mobile app to replace spreadsheets and manual counts. With minimal setup, they gain professional inventory control that syncs directly with their Shopify store.',
+		imageSrc: '/shopify/image12.avif',
+		imageAlt: 'Shopify store owner reviewing inventory with a tablet in a retail shop',
+	},
+	{
+		id: 'multichannel',
+		title: 'Growing Multi-Channel Sellers',
+		body:
+			'Expanding businesses leverage BinLogic to maintain inventory accuracy across Shopify and other sales channels. The centralized system eliminates data silos and keeps all platforms in sync.',
+		imageSrc: '/shopify/image13.avif',
+		imageAlt: 'Growing retail team reviewing operations together on a laptop',
+	},
+	{
+		id: 'plus',
+		title: 'Established Shopify Plus Merchants',
+		body:
+			"Large organizations can manage complex multi-location operations on our platform knowing that we're built on a highly scalable architecture built to handle vast amounts of data and transactions.",
+		imageSrc: '/shopify/image14.avif',
+		imageAlt: 'Established business leaders celebrating operational progress in an office',
+	},
+];
+
+const shopifyGalleryImages = [
+	'/shopify/gallery/image1.avif',
+	'/shopify/gallery/image2.avif',
+	'/shopify/gallery/image3.avif',
+	'/shopify/gallery/image4.avif',
+	'/shopify/gallery/image5.avif',
+	'/shopify/gallery/image6.avif',
+	'/shopify/gallery/image7.avif',
+	'/shopify/gallery/image8.avif',
+];
+
+const shopifyGalleryRows = [
+	shopifyGalleryImages.slice(0, 4),
+	shopifyGalleryImages.slice(4),
+];
+
+const shopifyPlans = [
+	{
+		title: 'Start with the Mobile App today.',
+		imageSrc: '/shopify/image15.avif',
+		imageAlt: 'Team member using a mobile phone to manage inventory tasks',
+		paragraphs: [
+			'Begin your inventory journey with our powerful mobile app. Perfect for Shopify stores of any size. Our mobile app lets you manage core inventory tasks including receiving, counting, and fulfillment.',
+			'You can also try creating product listings in minutes with our AI-powered catalog builder. More AI features are coming soon.',
+		],
+		cta: 'Start a Trial',
+	},
+	{
+		title: 'Grow into the full Binlogic Platform.',
+		imageSrc: '/shopify/image16.avif',
+		imageAlt: 'Professional using the full Binlogic platform on a laptop',
+		paragraphs: [
+			'Scale your operation by having your team work in our mobile app while team leaders and manager gain a comprehensive web-based platform to drive key decisions.',
+			"Advance your team's capabilities with multi-location inventory, end-to-end fulfillment workflows, and business intelligence which connect seamlessly with Shopify.",
+		],
+		cta: 'Pick your plan',
+	},
+];
+---
+
+<Layout>
+	<section class="px-6 pb-16 pt-24 md:px-10 md:pb-20 md:pt-30 xl:px-12 xl:pb-24 xl:pt-34">
+		<div class="mx-auto grid max-w-7xl gap-14 xl:grid-cols-[minmax(0,0.92fr)_minmax(560px,1.08fr)] xl:items-center xl:gap-16">
+			<div class="max-w-2xl xl:order-2 xl:pr-6">
+				<p class="text-sm font-semibold uppercase tracking-[0.34em] text-[#0A67AA]">Shopify Operations</p>
+				<h1 class="mt-5 text-4xl font-medium leading-[1.02] tracking-[-0.04em] text-[#080F46] sm:text-5xl xl:text-[4rem]">
+					Build a Shopify workflow your team can actually run.
+				</h1>
+				<p class="mt-7 max-w-xl text-lg leading-8 text-[#2C386A] sm:text-xl sm:leading-9">
+					Give your operators the desktop visibility and mobile execution tools they need to receive inventory, manage products, and keep fulfillment moving without losing accuracy.
+				</p>
+				<div class="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+					<a
+						href="#"
+						class="inline-flex min-w-52 items-center justify-center rounded-full bg-[#0A67AA] px-8 py-4 text-lg font-semibold text-white transition hover:bg-[#085892]"
+					>
+						Get Started
+					</a>
+					<a
+						href="#"
+						class="inline-flex min-w-52 items-center justify-center rounded-full border-[3px] border-[#080F46] px-8 py-4 text-lg font-semibold text-[#080F46] transition hover:bg-[#080F46] hover:text-white"
+					>
+						See Demo
+					</a>
+				</div>
+			</div>
+
+			<div class="relative mx-auto w-full max-w-2xl px-2 sm:px-6 xl:order-1 xl:px-0">
+				<div class="absolute left-10 top-2 h-24 w-24 rounded-full bg-[#0A67AA]/10 blur-3xl sm:h-36 sm:w-36"></div>
+				<div class="absolute bottom-8 right-10 h-24 w-24 rounded-full bg-[#E7A45C]/20 blur-3xl sm:h-40 sm:w-40"></div>
+				<div class="relative rounded-4xl bg-white/70 p-4 shadow-[0_30px_80px_rgba(8,15,70,0.12)] ring-1 ring-white/60 backdrop-blur-sm sm:p-5">
+					<div class="overflow-hidden rounded-[1.7rem] bg-[#F6EBDD]">
+						<img
+							src="/shopify/image1.avif"
+							alt="Shopify merchant working between laptop and mobile device"
+							class="block h-auto w-full object-cover"
+						/>
+					</div>
+
+					<div class="absolute -right-1 top-5 w-[28%] min-w-35 max-w-46 rounded-[1.4rem] bg-white p-2 shadow-[0_18px_45px_rgba(8,15,70,0.18)] sm:-right-5 sm:top-8 sm:p-3">
+						<img
+							src="/shopify/image3.avif"
+							alt="Mobile receiving workflow interface"
+							class="block w-full rounded-2xl"
+						/>
+					</div>
+
+					<div class="absolute -bottom-4 left-2 w-[44%] min-w-48 max-w-[18rem] rounded-3xl bg-white p-2.5 shadow-[0_22px_55px_rgba(8,15,70,0.2)] sm:-bottom-6 sm:-left-4 sm:p-3.5">
+						<div class="overflow-hidden rounded-2xl bg-white shadow-[0_10px_24px_rgba(8,15,70,0.08)]">
+							<img
+								src="/shopify/shopifylogo.avif"
+								alt="Shopify logo"
+								class="block w-full"
+							/>
+						</div>
+						<div class="mt-2.5 overflow-hidden rounded-2xl bg-white shadow-[0_12px_30px_rgba(8,15,70,0.1)] sm:mt-3">
+							<img
+								src="/shopify/image2.avif"
+								alt="Shopify desktop products dashboard"
+								class="block w-full"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="px-6 pb-18 pt-12 md:px-10 md:pb-24 md:pt-16 xl:px-12 xl:pb-28 xl:pt-20">
+		<div class="mx-auto max-w-7xl">
+			<div class="mx-auto max-w-5xl text-center">
+				<h2 class="text-4xl font-medium leading-[1.08] tracking-[-0.04em] text-[#080F46] sm:text-5xl xl:text-[2.4rem]">
+					<span class="block">Managing inventory for Shopify stores</span>
+					<span class="block">just got easier.</span>
+				</h2>
+				<p class="mx-auto mt-8 max-w-4xl text-lg leading-8 text-[#2C386A] sm:text-xl sm:leading-9">
+					Don't let your inventory challenges hurts your team, customers, and reputation.
+				</p>
+			</div>
+
+			<div class="mt-14 grid gap-10 lg:grid-cols-3 lg:items-stretch xl:mt-18 xl:gap-12">
+				{
+					inventoryChallenges.map((challenge) => (
+						<article class="mx-auto flex h-full w-full max-w-[24rem] flex-col">
+							<div class="mx-5 flex h-34 items-center justify-center rounded-t-[1.8rem] bg-linear-to-b from-[#27C7EC] to-[#0A67AA] px-6">
+								{challenge.icon === 'hidden' && (
+									<svg viewBox="0 0 24 24" class="h-11 w-11 text-white" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+										<path d="M2 12s3.5-6 10-6c2.5 0 4.6.9 6.3 2.1" />
+										<path d="M22 12s-3.5 6-10 6c-2.5 0-4.6-.9-6.3-2.1" />
+										<path d="M9.9 9.9A3 3 0 0 1 14.1 14.1" />
+										<path d="M4 4l16 16" />
+									</svg>
+								)}
+								{challenge.icon === 'time' && (
+									<svg viewBox="0 0 24 24" class="h-11 w-11 text-white" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+										<path d="M9 3h6" />
+										<path d="M10 3v3" />
+										<rect x="5" y="6" width="10" height="14" rx="2" />
+										<path d="M8 10h4" />
+										<path d="M8 14h4" />
+										<circle cx="17.5" cy="16.5" r="4.5" />
+										<path d="M17.5 14.2v2.6l1.7 1" />
+									</svg>
+								)}
+								{challenge.icon === 'clipboard' && (
+									<svg viewBox="0 0 24 24" class="h-11 w-11 text-white" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+										<rect x="6" y="5" width="12" height="16" rx="2" />
+										<path d="M9 5.5h6" />
+										<path d="M10 3h4a1 1 0 0 1 1 1v2H9V4a1 1 0 0 1 1-1Z" />
+										<path d="M10 11h4" />
+									</svg>
+								)}
+							</div>
+
+							<div class="flex flex-1 flex-col rounded-[1.8rem] bg-white px-8 pb-10 pt-7 text-center shadow-[0_24px_60px_rgba(8,15,70,0.08)] sm:px-10 sm:pb-12 sm:pt-8">
+								<h3 class="mx-auto max-w-70 text-2xl font-medium leading-[1.2] tracking-[-0.03em] text-[#080F46] sm:text-[1.3rem]">
+									{challenge.title}
+								</h3>
+								<div class="mx-auto mt-7 flex max-w-[18rem] flex-1 flex-col justify-start space-y-6 text-base leading-7 text-[#2C386A] sm:max-w-68 sm:text-[1.05rem] sm:leading-7">
+									{challenge.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+								</div>
+							</div>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="px-0 pb-18 pt-4 md:pb-24 md:pt-6 xl:pb-28">
+		<div class="relative isolate overflow-hidden bg-[#101822]">
+			<img
+				src="/shopify/image4.avif"
+				alt="Warehouse operator reviewing inventory paperwork beside a laptop"
+				class="absolute inset-0 h-full w-full object-cover object-[50%_0%]"
+			/>
+			<div class="absolute inset-0 bg-[#0B1220]/44"></div>
+			<div class="absolute inset-0 bg-linear-to-r from-[#0B1220]/50 via-[#0B1220]/30 to-[#0B1220]/18"></div>
+
+			<div class="relative mx-auto max-w-7xl px-6 py-18 md:px-10 md:py-24 xl:px-12 xl:py-28">
+				<div class="max-w-3xl">
+					<h2 class="text-3xl font-semibold leading-[1.05] tracking-[-0.04em] text-white sm:text-4xl xl:text-[3.35rem]">
+						<span class="block">Let's make inventory</span>
+						<span class="block">management a <span class="text-[#22D7FF]">revenue</span></span>
+						<span class="block"><span class="text-[#22D7FF]">and profit booster</span>, not a</span>
+						<span class="block">chore.</span>
+					</h2>
+
+					<p class="mt-8 max-w-2xl text-base leading-7 text-white/86 sm:text-lg sm:leading-8">
+						Having great inventory management capabilities helps merchants create additional revenue capturing opportunities and lowers overhead costs to supercharge profit margins.
+					</p>
+
+					<div class="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center">
+						<a
+							href="#"
+							class="inline-flex min-w-56 items-center justify-center rounded-full bg-[#0A67AA] px-10 py-4 text-lg font-semibold text-white transition hover:bg-[#085892]"
+						>
+							Get Started
+						</a>
+						<a
+							href="#"
+							class="inline-flex min-w-56 items-center justify-center rounded-full border-[3px] border-white/90 px-10 py-4 text-lg font-semibold text-white transition hover:bg-white hover:text-[#080F46]"
+						>
+							Learn More
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 pb-16 pt-10 text-center md:px-10 md:pb-24 md:pt-14 xl:gap-8 xl:px-12 xl:pb-28 xl:pt-16">
+		<h2 class="text-3xl font-medium leading-[1.16] tracking-[-0.04em] text-[#080F46] sm:text-4xl xl:text-[3rem]">
+			See how we're using inventory management to make online selling better.
+		</h2>
+		<p class="mx-auto max-w-3xl text-lg font-light leading-8 text-[#2C386A] sm:text-xl sm:leading-9">
+			We can help create better outcomes for you, your team, and your customers.
+		</p>
+	</section>
+
+	<section class="relative isolate" style={`height: ${overlapPanels.length * 100}vh;`}>
+		<div class="relative h-full w-full">
+			{
+				overlapPanels.map((panel, index) => (
+					<div
+						class="absolute inset-x-0"
+						style={`top: ${index * 100}vh; height: ${index === overlapPanels.length - 1 ? 100 : 200}vh; z-index: ${20 + index};`}
+					>
+						<article
+							class="sticky top-0 h-screen w-full overflow-hidden bg-[#F6F7FB]"
+						>
+							<div class="mx-auto grid h-full min-h-screen max-w-7xl gap-10 px-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center lg:gap-0 md:px-10 xl:px-12">
+								<div class:list={[
+									'flex flex-col justify-center py-10',
+									panel.imageSide === 'left' ? 'lg:order-2 lg:items-end lg:pl-10 xl:pl-14 lg:text-right' : 'lg:order-1 lg:pr-10 xl:pr-14',
+								]}>
+									<h3 class="max-w-[13ch] text-3xl font-medium leading-[1.14] tracking-[-0.04em] text-[#080F46] sm:text-4xl xl:text-[3.35rem]">
+										{panel.title}
+									</h3>
+									<p class="mt-8 max-w-xl text-lg leading-8 text-[#42507D] sm:text-xl sm:leading-9">
+										{panel.body}
+									</p>
+
+									<div class:list={[
+										'mt-10 flex flex-col gap-4 sm:flex-row sm:items-center',
+										panel.imageSide === 'left' && 'lg:justify-end',
+									]}>
+										<a
+											href="#"
+											class="inline-flex min-w-52 items-center justify-center rounded-full bg-[#0A67AA] px-8 py-4 text-lg font-semibold text-white transition hover:bg-[#085892]"
+										>
+											Get Started
+										</a>
+										<a
+											href="#"
+											class="inline-flex min-w-52 items-center justify-center rounded-full border-[3px] border-[#1A2350] px-8 py-4 text-lg font-semibold text-[#1A2350] transition hover:bg-[#1A2350] hover:text-white"
+										>
+											Learn More
+										</a>
+									</div>
+								</div>
+
+								<div class:list={[
+									'relative flex h-full min-h-104 items-center overflow-visible py-8 lg:min-h-screen lg:py-12',
+									panel.imageSide === 'left' ? 'lg:order-1 lg:justify-start' : 'lg:order-2 lg:justify-end',
+								]}>
+									<div class="relative h-full max-h-[84vh] w-full max-w-2xl overflow-visible rounded-4xl">
+										<div class="absolute inset-0 overflow-hidden rounded-4xl shadow-[0_24px_60px_rgba(8,15,70,0.14)]">
+											<img
+												src={panel.imageSrc}
+												alt={panel.imageAlt}
+												class="h-full w-full object-cover object-center"
+											/>
+											<div class="absolute inset-0 bg-linear-to-r from-white/0 via-white/0 to-white/10"></div>
+										</div>
+									{
+										panel.overlayCards.map((card) => (
+											<div class={card.wrapperClass}>
+												<img
+													src={card.src}
+													alt={card.alt}
+													class={card.imageClass}
+												/>
+											</div>
+										))
+									}
+									</div>
+								</div>
+							</div>
+						</article>
+					</div>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="px-6 pb-20 pt-16 md:px-10 md:pb-28 md:pt-20 xl:px-12 xl:pb-32 xl:pt-24">
+		<div class="mx-auto max-w-6xl text-center">
+			<h2 class="mx-auto max-w-5xl text-4xl font-medium leading-[1.14] tracking-[-0.04em] text-[#080F46] sm:text-5xl xl:text-[4rem]">
+				<span class="block">Our solution is flexible and scalable</span>
+				<span class="block">to work with most organizations.</span>
+			</h2>
+
+			<p class="mx-auto mt-10 max-w-5xl text-lg leading-8 text-[#233266] sm:text-xl sm:leading-9 xl:max-w-4xl">
+				Binlogic adapts to businesses of all sizes who use Shopify as their digital storefront, providing an inventory solutions that allows organizations to transform operations quickly and grow into lasting operational improvements.
+			</p>
+
+			<div class="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-10">
+				<a
+					href="#"
+					class="inline-flex min-w-32 items-center justify-center rounded-full bg-[#0A67AA] px-8 py-3.5 text-lg font-semibold text-white transition hover:bg-[#085892]"
+				>
+					Get Started
+				</a>
+				<a
+					href="#"
+					class="inline-flex min-w-32 items-center justify-center rounded-full border-[3px] border-[#080F46] px-8 py-3.5 text-lg font-medium text-[#080F46] transition hover:bg-[#080F46] hover:text-white"
+				>
+					Learn More
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="px-6 pb-24 pt-4 md:px-10 md:pb-28 md:pt-8 xl:px-12 xl:pb-32 xl:pt-10">
+		<div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,0.98fr)_minmax(0,1fr)] lg:items-stretch lg:gap-10" data-segment-switcher>
+			<div class="flex min-h-104 flex-col gap-8" role="tablist" aria-label="Organization segments">
+				{
+					organizationSegments.map((segment, index) => (
+						<button
+							type="button"
+							class:list={[
+								'segment-card flex flex-1 flex-col justify-start w-full rounded-[1.9rem] border px-8 py-7 text-left transition duration-200',
+								index === 0
+									? 'border-[#27C7EC] bg-white text-[#080F46] shadow-[0_12px_30px_rgba(8,15,70,0.04)]'
+									: 'border-[#E9EDF5] bg-white/70 text-[#C3C8D4]',
+							]}
+							data-segment-trigger
+							data-segment-id={segment.id}
+							aria-selected={index === 0 ? 'true' : 'false'}
+							role="tab"
+						>
+							<h3 class="text-[1.45rem] font-medium leading-[1.15] tracking-[-0.03em]">{segment.title}</h3>
+							<p class="mt-6 max-w-xl text-base leading-7">{segment.body}</p>
+						</button>
+					))
+				}
+			</div>
+
+			<div class="relative overflow-hidden rounded-[1.9rem] shadow-[0_18px_50px_rgba(8,15,70,0.08)]">
+				{
+					organizationSegments.map((segment, index) => (
+						<img
+							src={segment.imageSrc}
+							alt={segment.imageAlt}
+							class:list={[
+								'segment-image h-full min-h-104 w-full rounded-[1.9rem] object-cover transition duration-300',
+								index === 0 ? 'block' : 'hidden',
+							]}
+							data-segment-image
+							data-segment-id={segment.id}
+						/>
+					))
+				}
+			</div>
+		</div>
+
+		<script is:inline>
+			const switchers = document.querySelectorAll('[data-segment-switcher]');
+
+			switchers.forEach((switcher) => {
+				const triggers = Array.from(switcher.querySelectorAll('[data-segment-trigger]'));
+				const images = Array.from(switcher.querySelectorAll('[data-segment-image]'));
+
+				const setActive = (segmentId) => {
+					triggers.forEach((trigger) => {
+						const isActive = trigger.dataset.segmentId === segmentId;
+						trigger.setAttribute('aria-selected', isActive ? 'true' : 'false');
+						trigger.classList.toggle('border-[#27C7EC]', isActive);
+						trigger.classList.toggle('bg-white', isActive);
+						trigger.classList.toggle('text-[#080F46]', isActive);
+						trigger.classList.toggle('shadow-[0_12px_30px_rgba(8,15,70,0.04)]', isActive);
+						trigger.classList.toggle('border-[#E9EDF5]', !isActive);
+						trigger.classList.toggle('bg-white/70', !isActive);
+						trigger.classList.toggle('text-[#C3C8D4]', !isActive);
+					});
+
+					images.forEach((image) => {
+						const isActive = image.dataset.segmentId === segmentId;
+						image.classList.toggle('block', isActive);
+						image.classList.toggle('hidden', !isActive);
+					});
+				};
+
+				triggers.forEach((trigger) => {
+					trigger.addEventListener('click', () => setActive(trigger.dataset.segmentId));
+				});
+			});
+		</script>
+	</section>
+
+	<section class="px-6 pb-24 pt-8 md:px-10 md:pb-28 md:pt-12 xl:px-12 xl:pb-32 xl:pt-16">
+		<div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-14">
+			<div>
+				<h2 class="max-w-[13ch] text-3xl font-medium leading-[1.16] tracking-[-0.04em] text-[#080F46] sm:text-[2.45rem] xl:text-[3.15rem]">
+					Start with the solution that best fits your current needs, and grow when you're ready.
+				</h2>
+			</div>
+
+			<div class="flex flex-col items-start lg:items-end">
+				<div class="max-w-4xl text-left lg:text-right">
+					<p class="text-base leading-7 text-[#233266] sm:text-lg sm:leading-8">
+						We believe in providing the right solution for your team, at the right time to make sure you can quickly solve the organizations core challenges.
+					</p>
+					<p class="mt-8 text-base leading-7 text-[#233266] sm:text-lg sm:leading-8">
+						Then optimize processes and expand the capabilities of your organization when it comes to inventory management and so much more.
+					</p>
+				</div>
+
+				<div class="mt-12 flex w-full flex-col gap-4 sm:flex-row sm:justify-start lg:justify-end">
+					<a
+						href="#"
+						class="inline-flex min-w-56 items-center justify-center rounded-full bg-[#0A67AA] px-10 py-3.5 text-lg font-semibold text-white transition hover:bg-[#085892]"
+					>
+						Get Started
+					</a>
+					<a
+						href="#"
+						class="inline-flex min-w-56 items-center justify-center rounded-full border-[3px] border-[#080F46] px-10 py-3.5 text-lg font-medium text-[#080F46] transition hover:bg-[#080F46] hover:text-white"
+					>
+						Learn More
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="overflow-hidden px-0 pb-24 pt-4 md:pb-28 md:pt-6 xl:pb-32 xl:pt-8">
+		<div class="space-y-5 md:space-y-6">
+			{
+				shopifyGalleryRows.map((row, rowIndex) => (
+					<div class="overflow-hidden">
+						<div class:list={[
+							'shopify-gallery-track flex w-max gap-5 md:gap-6',
+							rowIndex === 1 && 'shopify-gallery-track-reverse',
+						]}>
+							{[...row, ...row].map((imageSrc, imageIndex) => (
+								<div class="shopify-gallery-card h-56 w-[20rem] flex-none overflow-hidden rounded-[1.7rem] bg-white shadow-[0_16px_40px_rgba(8,15,70,0.08)] md:h-72 md:w-100 xl:h-80 xl:w-md">
+									<img
+										src={imageSrc}
+										alt="Shopify gallery showcase"
+										loading={imageIndex < row.length ? 'eager' : 'lazy'}
+										class="h-full w-full object-cover"
+									/>
+								</div>
+							))}
+						</div>
+					</div>
+				))
+			}
+		</div>
+
+		<style is:inline>
+			.shopify-gallery-track {
+				animation: shopify-gallery-scroll 34s linear infinite;
+			}
+
+			.shopify-gallery-track-reverse {
+				animation-direction: reverse;
+				animation-duration: 38s;
+			}
+
+			@keyframes shopify-gallery-scroll {
+				from {
+					transform: translateX(0);
+				}
+
+				to {
+					transform: translateX(calc(-50% - 0.75rem));
+				}
+			}
+
+			@media (min-width: 768px) {
+				@keyframes shopify-gallery-scroll {
+					from {
+						transform: translateX(0);
+					}
+
+					to {
+						transform: translateX(calc(-50% - 0.875rem));
+					}
+				}
+			}
+		</style>
+	</section>
+
+	<section class="px-6 pb-24 pt-10 md:px-10 md:pb-28 md:pt-14 xl:px-12 xl:pb-32 xl:pt-16">
+		<div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:gap-14">
+			{
+				shopifyPlans.map((plan) => (
+					<article class="flex h-full flex-col">
+						<h2 class="max-w-[14ch] text-[2rem] font-medium leading-[1.16] tracking-[-0.04em] text-[#080F46] sm:text-[2.15rem] xl:text-[2.45rem]">
+							{plan.title}
+						</h2>
+
+						<div class="mt-8 h-72 overflow-hidden rounded-[1.85rem] shadow-[0_16px_40px_rgba(8,15,70,0.08)] md:h-80 xl:h-88">
+							<img
+								src={plan.imageSrc}
+								alt={plan.imageAlt}
+								class="h-full w-full object-cover"
+							/>
+						</div>
+
+						<div class="mt-8 flex flex-1 flex-col space-y-8 text-center lg:text-left">
+							{plan.paragraphs.map((paragraph) => (
+								<p class="text-base leading-7 text-[#233266] sm:text-lg sm:leading-8">{paragraph}</p>
+							))}
+						</div>
+
+						<div class="mt-14 flex justify-center lg:mt-auto lg:pt-6 lg:justify-start">
+							<a
+								href="#"
+								class="inline-flex min-w-64 items-center justify-center rounded-full bg-[#0A67AA] px-10 py-3.5 text-lg font-semibold text-white transition hover:bg-[#085892]"
+							>
+								{plan.cta}
+							</a>
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="px-6 pb-24 pt-6 md:px-10 md:pb-28 md:pt-10 xl:px-12 xl:pb-32 xl:pt-12">
+		<div class="mx-auto max-w-7xl text-center">
+			<h2 class="mx-auto max-w-4xl text-4xl font-medium leading-[1.12] tracking-[-0.04em] text-[#080F46] sm:text-5xl xl:text-[3.7rem]">
+				Even more powerful together.
+			</h2>
+
+			<p class="mx-auto mt-8 max-w-5xl text-base leading-7 text-[#233266] sm:text-lg sm:leading-8 xl:max-w-6xl">
+				Explore what the whole platform has to offer across our technology products and integrations with other great solutions offered by our trusted partners.
+			</p>
+
+			<div class="mx-auto mt-12 max-w-6xl overflow-hidden rounded-4xl">
+				<img
+					src="/shopify/image17.avif"
+					alt="Binlogic platform and partner integrations showcased across multiple connected interfaces"
+					class="h-auto w-full object-cover"
+				/>
+			</div>
+
+			<div class="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-10">
+				<a
+					href="#"
+					class="inline-flex min-w-72 items-center justify-center rounded-full bg-[#0A67AA] px-10 py-3.5 text-lg font-semibold text-white transition hover:bg-[#085892]"
+				>
+					Learn More
+				</a>
+				<a
+					href="#"
+					class="inline-flex min-w-72 items-center justify-center rounded-full border-[3px] border-[#080F46] px-10 py-3.5 text-lg font-medium text-[#0A67AA] transition hover:bg-[#080F46] hover:text-white"
+				>
+					Sign Up
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>
